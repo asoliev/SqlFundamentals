@@ -16,15 +16,15 @@ AS
 	IF  @EmployeeName IS NULL
 	AND @FirstName IS NULL
 	AND @LastName IS NULL
-		Print 'EmployeeName and FirstName and LastName is null';
+		RAISERROR('EmployeeName and FirstName and LastName is NULL', 15, 1);
 	ELSE IF @EmployeeName = ''
 		AND @FirstName = ''
 		AND @LastName = ''
-		Print 'EmployeeName, FirstName and LastName is empty';
+		RAISERROR('EmployeeName, FirstName and LastName is EMPTY', 15, 2);
 	ELSE IF TRIM(@EmployeeName) = ''
 		AND TRIM(@FirstName) = ''
 		AND TRIM(@LastName) = ''
-		Print 'EmployeeName, FirstName and LastName contains only ‘space’ symbols';
+		RAISERROR('EmployeeName, FirstName and LastName contains only ‘SPACE’ symbols', 15, 3);
 	ELSE
 	BEGIN
 		BEGIN TRANSACTION
